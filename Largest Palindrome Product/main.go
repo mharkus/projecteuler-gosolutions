@@ -1,29 +1,29 @@
 package main
 
-import(
+import (
 	"fmt"
 	"strconv"
 	"unicode/utf8"
 )
 
-func solve(x, y, largest int){
-	if x < 100 && y  < 100 {
-		fmt.Printf("largest palindrome %d\n", largest)
+func solve(x, y, largest int) {
+	if x < 100 && y < 100 {
+		fmt.Printf("largest palindrome\n", largest)
 		return
-	}else if x < 100 {
-		solve(999, y - 1, largest)
+	} else if x < 100 {
+		solve(999, y-1, largest)
 		return
 	}
 
 	product := x * y
-	if(isPalindrome(product)){
-		
+	if isPalindrome(product) {
+
 		if largest < product {
 			largest = product
 		}
 	}
 
-	solve(x - 1, y, largest)
+	solve(x-1, y, largest)
 }
 
 func isPalindrome(num int) bool {
@@ -31,7 +31,7 @@ func isPalindrome(num int) bool {
 	return val == reverse(val)
 }
 
-func reverse(s string) string{
+func reverse(s string) string {
 	cs := make([]rune, utf8.RuneCountInString(s))
 	i := len(cs)
 
@@ -46,4 +46,3 @@ func reverse(s string) string{
 func main() {
 	solve(999, 999, 0)
 }
-
