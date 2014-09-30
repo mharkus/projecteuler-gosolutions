@@ -27,7 +27,7 @@ var data string = "73167176531330624919225119674426574742355349194934" +
 	"05886116467109405077541002256983155200055935729725" +
 	"71636269561882670428252483600823257530420752963450"
 
-func solve(max int) {
+func solve(max int) int64 {
 	var product int64 = 1
 
 	for i := 0; i < len(data)-max; i++ {
@@ -44,7 +44,7 @@ func solve(max int) {
 		}
 	}
 
-	fmt.Println("largest product is ", product)
+	return product
 }
 
 func main() {
@@ -59,5 +59,5 @@ func main() {
 		return
 	}
 
-	solve(param)
+	fmt.Println(solve(param))
 }
